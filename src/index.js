@@ -1,15 +1,10 @@
-/* eslint-disable */
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
+import Routes from 'app/routes'
 
-class Root extends Component {
+class Root extends Component { // eslint-disable-line
   render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Yo</Text>
-      </View>
-    )
+    return <Routes />
   }
 }
 
