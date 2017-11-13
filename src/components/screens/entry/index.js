@@ -18,14 +18,22 @@ class Entry extends Component {
     const { navigation } = this.props
 
     if (index === -1) return navigation.navigate('Settings', { data: 'Settings Screen' })
+
     if (index === 0) {
-      return navigation.navigate('Settings', {
+      return navigation.navigate('Basic', {
         data: 'Operations for Basic Arithmetic Calculation',
       })
     }
-    if (index === 1) { return navigation.navigate('Settings', { data: 'Operations for Standard Deviation' }) }
+
+    if (index === 1) {
+      return navigation.navigate('Settings', { data: 'Operations for Standard Deviation' })
+    }
+
     if (index === 2) return navigation.navigate('Settings', { data: 'Operations for Regression' })
-    if (index === 3) { return navigation.navigate('Settings', { data: 'Operations for Solution of Equations' }) }
+
+    if (index === 3) {
+      return navigation.navigate('Settings', { data: 'Operations for Solution of Equations' })
+    }
   }
 
   render() {
