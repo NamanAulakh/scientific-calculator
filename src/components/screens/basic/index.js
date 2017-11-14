@@ -18,6 +18,11 @@ class Basic extends Component {
     this.handleSlot1 = this.handleSlot1.bind(this)
     this.handleSlot2 = this.handleSlot2.bind(this)
     this.calculate = this.calculate.bind(this)
+    this.handleMainOp = this.handleMainOp.bind(this)
+  }
+
+  handleMainOp(item) {
+    console.log(item)
   }
 
   onPressActions(payload) {
@@ -72,7 +77,7 @@ class Basic extends Component {
         <View style={content}>
           <Inputs inputValue={inputValue} outputValue={outputValue} />
 
-          <Operations />
+          <Operations handleMainOp={this.handleMainOp} />
 
           <Actions onPressActions={this.onPressActions} />
         </View>
