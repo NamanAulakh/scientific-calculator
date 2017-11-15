@@ -57,7 +57,12 @@ class Basic extends Component {
   }
 
   calculate() {
-    const { inputValue } = this.state
+    let { inputValue } = this.state
+
+    inputValue = inputValue.replace(/π/g, `${math.pi}`)
+    inputValue = inputValue.replace(/e/g, `${math.e}`)
+
+    console.log(inputValue, '***********')
 
     try {
       this.setState({ outputValue: math.eval(inputValue) })
@@ -72,17 +77,23 @@ class Basic extends Component {
     const { inputValue, outputValue } = this.state
 
     if (item === 'pi') {
-      return this.setState({
-        inputValue: inputValue.concat('π'),
-        outputValue: outputValue * math.pi,
-      })
+      return this.setState(
+        {
+          inputValue: inputValue.concat('π'),
+          // outputValue: outputValue * math.pi,
+        },
+        () => this.calculate(),
+      )
     }
 
     if (item === 'e') {
-      return this.setState({
-        inputValue: inputValue.concat('e'),
-        outputValue: outputValue * math.e,
-      })
+      return this.setState(
+        {
+          inputValue: inputValue.concat('e'),
+          // outputValue: outputValue * math.e,
+        },
+        () => this.calculate(),
+      )
     }
 
     if (item === '%') {

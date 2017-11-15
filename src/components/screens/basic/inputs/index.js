@@ -13,7 +13,7 @@ const Inputs = (props) => {
     <View style={styles.container}>
       <View style={styles.two}>
         <ScrollView horizontal style={styles.input}>
-          <Text style={{ fontSize: 25, padding: 10 }}>{inputValue}</Text>
+          <Text style={{ fontSize: 25, padding: 5, alignSelf: 'center' }}>{inputValue}</Text>
         </ScrollView>
       </View>
 
