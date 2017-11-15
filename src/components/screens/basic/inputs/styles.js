@@ -1,7 +1,7 @@
 export default {
   container: { flex: 1, backgroundColor: 'gray' },
-  two: { flex: 2, marginTop: 20, justifyContent: 'center' },
-  input: { flex: 1, margin: 10, backgroundColor: 'white', padding: 10, fontSize: 25 },
+  two: { flex: 2, marginTop: 20 },
+  input: { flex: 1, margin: 10, backgroundColor: 'white', padding: 10,  },
 
   one: {
     flex: 1,

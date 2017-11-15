@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { View, Text, TextInput, Keyboard } from 'react-native'
+import { View, Text, TextInput, ScrollView } from 'react-native'
 
 import styles from './styles'
 // import type { renderProps } from '../constants'
@@ -12,7 +12,9 @@ const Inputs = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.two}>
-        <TextInput style={styles.input} value={inputValue} editable={false} />
+        <ScrollView horizontal style={styles.input}>
+          <Text style={{ fontSize: 25, padding: 10 }}>{inputValue}</Text>
+        </ScrollView>
       </View>
 
       <View style={styles.one}>

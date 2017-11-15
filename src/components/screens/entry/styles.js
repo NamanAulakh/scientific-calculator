@@ -1,5 +1,5 @@
 export default {
-  container: { flex: 1 },
+  container: { flex: 1, backgroundColor: 'gray' },
   text: { fontSize: 20, fontWeight: 'bold' },
   button: {
     backgroundColor: 'white',

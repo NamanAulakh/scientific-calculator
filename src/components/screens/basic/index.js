@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import math from 'mathjs'
 import { connect } from 'react-redux'
+// import { find, isUndefined } from 'lodash'
 import Inputs from './inputs'
 import Operations from './operations'
 import Actions from './actions'
@@ -21,10 +22,6 @@ class Basic extends Component {
     this.handleMainOp = this.handleMainOp.bind(this)
   }
 
-  handleMainOp(item) {
-    console.log(item)
-  }
-
   onPressActions(payload) {
     if (payload.slot) return this.handleSlot1(payload.item)
 
@@ -38,7 +35,7 @@ class Basic extends Component {
 
     if (item === '=') return this.calculate()
 
-    this.setState({ inputValue: inputValue.concat(item) })
+    this.setState({ inputValue: inputValue.concat(item) }, () => this.calculate())
   }
 
   handleSlot2(item) {
@@ -52,7 +49,9 @@ class Basic extends Component {
       return this.setState({ inputValue: inputValue.slice(0, inputValue.length - 1) })
     }
 
-    if (item === '(' || item === ')') return this.setState({ inputValue: inputValue.concat(item) })
+    if (item === '(' || item === ')') {
+      return this.setState({ inputValue: inputValue.concat(item) }, () => this.calculate())
+    }
 
     this.setState({ inputValue: inputValue.concat(item) })
   }
@@ -60,7 +59,50 @@ class Basic extends Component {
   calculate() {
     const { inputValue } = this.state
 
-    this.setState({ outputValue: math.eval(inputValue) })
+    try {
+      this.setState({ outputValue: math.eval(inputValue) })
+    } catch (error) {
+      console.log(error, '!!!!!Error in file ...basic...!!!!!') // eslint-disable-line
+
+      this.setState({ outputValue: `${error}` })
+    }
+  }
+
+  handleMainOp(item) {
+    const { inputValue, outputValue } = this.state
+
+    if (item === 'pi') {
+      return this.setState({
+        inputValue: inputValue.concat('π'),
+        outputValue: outputValue * math.pi,
+      })
+    }
+
+    if (item === 'e') {
+      return this.setState({
+        inputValue: inputValue.concat('e'),
+        outputValue: outputValue * math.e,
+      })
+    }
+
+    if (item === '%') {
+      return this.setState({
+        inputValue: inputValue.concat('%'),
+        // outputValue: outputValue * math.e,
+      })
+    }
+
+    if (item === 'sqRoot') {
+      return this.setState({
+        inputValue: inputValue.concat('sqrt('),
+        // outputValue: outputValue * math.e,
+      })
+    }
+
+    this.setState({
+      inputValue: JSON.stringify(outputValue),
+      outputValue: '',
+    })
   }
 
   render() {
