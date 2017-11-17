@@ -9,6 +9,7 @@ export default {
     margin: 10,
     padding: 10,
     justifyContent: 'center',
+    // flexWrap: 'wrap',
   },
   output: { fontSize: 20 },
 }

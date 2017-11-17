@@ -7,7 +7,7 @@ import { mainOpArr, otherOppsArr } from '../constants'
 
 // const Operations = (props: renderProps) => {
 const Operations = (props) => {
-  const { handleMainOp } = props
+  const { handleMainOp, handleOtherOps } = props
 
   return (
     <View style={{ flex: 1, backgroundColor: 'gray', padding: 5 }}>
@@ -21,7 +21,7 @@ const Operations = (props) => {
                     padding: indexX === otherOppsArr.length - 1 ? 10 : 5,
                   })}
                   key={index}
-                  onPress={() => console.log(item)}
+                  onPress={() => handleOtherOps(item)}
                 >
                   <Text style={styles.btnText}>{item}</Text>
                 </TouchableOpacity>

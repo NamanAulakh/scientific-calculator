@@ -1,1 +1,1 @@
-export default { yo: 'yo', settings: { isUnitDegrees: true } }
+export default { yo: 'yo', settings: { isUnitDegrees: false, ans: '', history: [] } }

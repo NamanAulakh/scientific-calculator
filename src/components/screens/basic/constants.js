@@ -10,9 +10,10 @@ export const mainOpArr = [
   { key: 'e', value: 'e' },
 ]
 
-const otherOpArr1 = ['!', '^', 'ln', 'x√y', 'log10b', 'logab']
-const otherOpArr2 = ['sin', 'cos', 'tan', 'cot', 'sec', 'cosec']
-const otherOpArr3 = ['sin-1', 'cos-1', 'tan-1', 'cot-1', 'sec-1', 'cosec-1']
-const otherOpArr4 = ['nCr', 'nPr', 'H', 'GCD', 'LCM']
+// const otherOpArr1 = ['!', '^', 'x√y', 'ln', 'log10b', 'logab']
+const otherOpArr1 = ['!', '^', 'x√y', 'ln', 'log10b']
+const otherOpArr2 = ['sin', 'cos', 'tan', 'cot', 'sec', 'csc']
+const otherOpArr3 = ['asin', 'acos', 'atan', 'acot', 'asec', 'acsc']
+const otherOpArr4 = ['nCr', 'nPr', 'H']
 
 export const otherOppsArr = [otherOpArr1, otherOpArr2, otherOpArr3, otherOpArr4]
