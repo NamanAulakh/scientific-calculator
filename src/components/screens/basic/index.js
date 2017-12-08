@@ -74,7 +74,7 @@ class Basic extends Component {
 
   calculate() {
     let { inputValue } = this.state
-    const { isUnitDegrees, setAns, setHistory } = this.props
+    const { setAns, setHistory } = this.props
 
     inputValue = inputValue.replace(/π/g, `${math.pi}`)
     if (!includes(inputValue, 'sec')) inputValue = inputValue.replace(/e/g, `${math.e}`)
@@ -203,16 +203,16 @@ class Basic extends Component {
 
     const { inputValue, outputValue, a, b, func } = this.state
 
-    // const data = this.props.navigation.state.params.data
+    const data = this.props.navigation.state.params.data
+
+    // console.log(data, '............')
 
     return (
       <View style={container}>
         <Modal
           animationType="slide"
           visible={this.state.modalVisible}
-          onRequestClose={() => {
-            alert('Modal has been closed.')
-          }}
+          onRequestClose={() => Alert.alert('Modal has been closed.')}
           transparent
         >
           <View
@@ -358,7 +358,7 @@ class Basic extends Component {
         </Modal>
 
         <View style={content}>
-          <Inputs inputValue={inputValue} outputValue={outputValue} />
+          <Inputs inputValue={inputValue} outputValue={outputValue} data={data}/>
 
           <Operations handleMainOp={this.handleMainOp} handleOtherOps={this.handleOtherOps} />
 

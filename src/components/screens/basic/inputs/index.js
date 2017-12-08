@@ -7,7 +7,9 @@ import styles from './styles'
 
 // const Inputs = (props: renderProps) => {
 const Inputs = (props) => {
-  const { inputValue = '2x2', outputValue = '4' } = props
+  const { inputValue = '2x2', outputValue = '4', data } = props
+
+  // if (data === 'Eq') return <View><Text>Yo</Text></View>
 
   return (
     <View style={styles.container}>

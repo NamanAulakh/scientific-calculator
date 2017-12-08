@@ -21,18 +21,18 @@ class Entry extends Component {
 
     if (index === 0) {
       return navigation.navigate('Basic', {
-        data: 'Operations for Basic Arithmetic Calculation',
+        data: 'Operations for Basic Arithmetic Calculation', type: 0
       })
     }
 
-    if (index === 1) {
+    if (index === 2) {
       return navigation.navigate('Settings', { data: 'Operations for Standard Deviation' })
     }
 
-    if (index === 2) return navigation.navigate('Settings', { data: 'Operations for Regression' })
+    if (index === 3) return navigation.navigate('Settings', { data: 'Operations for Regression' })
 
-    if (index === 3) {
-      return navigation.navigate('Settings', { data: 'Operations for Solution of Equations' })
+    if (index === 1) {
+      return navigation.navigate('Equation', { data: 'Eq' })
     }
   }
 

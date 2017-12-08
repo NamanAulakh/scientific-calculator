@@ -1,5 +1,15 @@
 {
   "expo": {
+    "name": "Scientific CalC",
+    "icon": "./assets/react-logo-1000-transparent.png",
+    "version": "1.0.0",
+    "slug": "scientific-calculator",
+    "ios": {
+      "bundleIdentifier": "com.yo.scientificCalC"
+    },
+    "android": {
+      "package": "com.yo.scientificCalC"
+    },
     "sdkVersion": "22.0.0",
     "androidStatusBar": {
       "barStyle": "dark-content",
