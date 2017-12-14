@@ -94,7 +94,7 @@ class Cubic extends Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <View style={styles.content}>
+        <ScrollView style={styles.content}>
           <View style={styles.main}>
             <Text style={styles.text}>Solution of Cubic Equations:</Text>
             <Text style={Object.assign({}, styles.text, { alignSelf: 'center' })}>
@@ -166,9 +166,18 @@ class Cubic extends Component {
               </ScrollView>
             </View>
           </View>
-        </View>
+        </ScrollView>
 
-        <TouchableOpacity style={styles.settings} onPress={() => navigation.goBack()}>
+        <TouchableOpacity
+          style={{
+            // flex: 1,
+            height: 70,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#00bfff',
+          }}
+          onPress={() => navigation.goBack()}
+        >
           <Text style={styles.text}>Go to prev screen</Text>
         </TouchableOpacity>
       </View>
