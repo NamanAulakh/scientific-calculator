@@ -3,6 +3,8 @@ import Entry from 'app/components/screens/entry'
 import Settings from 'app/components/screens/settings'
 import Basic from 'app/components/screens/basic'
 import Equation from 'app/components/screens/eq'
+import Quad from 'app/components/screens/eq/Quad'
+import Cubic from 'app/components/screens/eq/Cubic'
 
 const Routes = StackNavigator(
   {
@@ -10,6 +12,8 @@ const Routes = StackNavigator(
     Settings: { screen: Settings },
     Basic: { screen: Basic },
     Equation: { screen: Equation },
+    Quad: { screen: Quad },
+    Cubic: { screen: Cubic },
   },
   {
     index: 0,

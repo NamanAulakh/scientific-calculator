@@ -1,99 +1,58 @@
-// @flow
 import React, { Component } from 'react'
-import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 // import { isNan } from 'lodash'
 import { connect } from 'react-redux'
-import styles from './styles'
+import { mainOperations } from './constants'
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: 'gray' },
+  text: { fontSize: 20, fontWeight: 'bold' },
+  button: {
+    backgroundColor: 'white',
+    padding: 5,
+    margin: 10,
+    elevation: 2,
+    shadowOffset: { width: 2, height: 2 },
+    shadowColor: 'black',
+    shadowOpacity: 1,
+  },
+  content: { flex: 9, justifyContent: 'center', alignItems: 'center' },
+  settings: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#00bfff',
+  },
+})
 
 class Equation extends Component {
   constructor(props, context) {
     super(props, context)
-
-    this.state = { root1: '0', root2: '0', a: '1', b: '0', c: '0' }
-
-    this.solve = this.solve.bind(this)
+    this.handleButtonPress = this.handleButtonPress.bind(this)
   }
 
-  solve() {
-    const { a, b, c } = this.state
+  handleButtonPress(index) {
+    const { navigation } = this.props
 
-    const root = b ** 2 - 4 * a * c // eslint-disable-line
-    const root1 = (-b + Math.sqrt(root)) / (2 * a)
-    const root2 = (-b - Math.sqrt(root)) / (2 * a)
-
-    this.setState({
-      root1: isNaN(root1) ? 'Imaginary' : root1,
-      root2: isNaN(root2) ? 'Imaginary' : root2,
-    })
+    if (index === 0) return navigation.navigate('Quad')
+    return navigation.navigate('Cubic')
   }
 
   render() {
     const { navigation } = this.props
-    const { root1, root2 } = this.state
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.container}>
         <View style={styles.content}>
-          <View style={styles.main}>
-            <Text style={styles.text}>Solution of Quadratic Equations:</Text>
-            <Text style={Object.assign({}, styles.text, { alignSelf: 'center' })}>
-              Ax^2 + Bx + C
-            </Text>
-
-            <View style={{ margin: 20, flexDirection: 'row', backgroundColor: 'red', padding: 10 }}>
-              <Text style={styles.text}>A = </Text>
-
-              <TextInput
-                style={{ flex: 1, height: 30, borderColor: 'gray', borderWidth: 1, padding: 1 }}
-                onChangeText={a => this.setState({ a })}
-                value={this.state.a}
-              />
-            </View>
-
-            <View
-              style={{ margin: 20, flexDirection: 'row', backgroundColor: 'yellow', padding: 10 }}
+          {mainOperations.map((operation, index) => (
+            <TouchableOpacity
+              style={styles.button}
+              key={index}
+              onPress={() => this.handleButtonPress(index)}
             >
-              <Text style={styles.text}>B = </Text>
-
-              <TextInput
-                style={{ flex: 1, height: 30, borderColor: 'gray', borderWidth: 1, padding: 1 }}
-                onChangeText={b => this.setState({ b })}
-                value={this.state.b}
-              />
-            </View>
-
-            <View
-              style={{ margin: 20, flexDirection: 'row', backgroundColor: 'green', padding: 10 }}
-            >
-              <Text style={styles.text}>C = </Text>
-
-              <TextInput
-                style={{ flex: 1, height: 30, borderColor: 'gray', borderWidth: 1, padding: 1 }}
-                onChangeText={c => this.setState({ c })}
-                value={this.state.c}
-              />
-            </View>
-
-            <TouchableOpacity style={styles.solve} onPress={this.solve}>
-              <Text style={styles.text}>Solve</Text>
+              <Text style={styles.text}>{operation}</Text>
             </TouchableOpacity>
-
-            <View style={{ margin: 20, flexDirection: 'row', backgroundColor: 'red', padding: 10 }}>
-              <Text style={styles.text}>X1 = </Text>
-              <ScrollView horizontal>
-                <Text style={styles.text}>{root1}</Text>
-              </ScrollView>
-            </View>
-
-            <View
-              style={{ margin: 20, flexDirection: 'row', backgroundColor: 'yellow', padding: 10 }}
-            >
-              <Text style={styles.text}>X2 = </Text>
-              <ScrollView horizontal>
-                <Text style={styles.text}>{root2}</Text>
-              </ScrollView>
-            </View>
-          </View>
+          ))}
         </View>
 
         <TouchableOpacity style={styles.settings} onPress={() => navigation.goBack()}>
@@ -104,5 +63,4 @@ class Equation extends Component {
   }
 }
 
-// flow-disable-line
 export default connect(null, null)(Equation)
