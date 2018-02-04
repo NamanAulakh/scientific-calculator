@@ -80,7 +80,7 @@ class Basic extends Component {
     if (!includes(inputValue, 'sec')) inputValue = inputValue.replace(/e/g, `${math.e}`)
     // inputValue = inputValue.replace(/asin/g, `math.asin`)
 
-    console.log(inputValue, '******calculate*****')
+    // console.log(inputValue, '******calculate*****')
 
     try {
       let res = math.eval(inputValue)
@@ -98,7 +98,7 @@ class Basic extends Component {
         },
       )
     } catch (error) {
-      console.log(error, '!!!!!Error in file ...basic...!!!!!') // eslint-disable-line
+      // console.log(error, '!!!!!Error in file ...basic...!!!!!') // eslint-disable-line
 
       this.setState({ outputValue: `${error}` })
     }
@@ -302,7 +302,7 @@ class Basic extends Component {
                   <View style={{ marginRight: 50 }}>
                     <TouchableOpacity
                       onPress={() => {
-                        console.log(a, b)
+                        // console.log(a, b)
                         if (parseInt(a) < parseInt(b)) {
                           return Alert.alert('a must be greater than b')
                         }

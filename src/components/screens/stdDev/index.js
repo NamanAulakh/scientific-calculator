@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Alert, ScrollView, TextInput, View, Text, TouchableOpacity } from 'react-native'
 import math from 'mathjs'
 import styles from './styles'
@@ -87,5 +86,4 @@ class StandardDeviation extends Component {
   }
 }
 
-// flow-disable-line
-export default connect(null, null)(StandardDeviation)
+export default StandardDeviation
