@@ -19,12 +19,11 @@ class StandardDeviation extends Component {
         <View style={styles.content}>
           <View style={styles.main}>
             <Text style={Object.assign({}, styles.text, { alignSelf: 'center' })}>
-              StandardDeviation
+              Standard Deviation
             </Text>
             <Text style={Object.assign({}, styles.text, { alignSelf: 'center', marginTop: 20 })}>
-              Type the value and press
+              {'Type the value and press "Submit"'}
             </Text>
-            <Text style={Object.assign({}, styles.text, { alignSelf: 'center' })}>Submit</Text>
 
             <View style={styles.horz}>
               <TextInput

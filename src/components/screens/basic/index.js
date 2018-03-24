@@ -150,9 +150,10 @@ class Basic extends Component {
   }
 
   handleOtherOps(item) {
-    const { inputValue, outputValue } = this.state
+    const { inputValue } = this.state
+    console.log(item, '****item********', inputValue)
 
-    const { isUnitDegrees, history } = this.props
+    const { isUnitDegrees } = this.props
 
     if (item === '!') {
       return this.setState({ inputValue: inputValue.concat(item) }, () => this.calculate())
@@ -174,13 +175,14 @@ class Basic extends Component {
       item === 'sec' ||
       item === 'csc'
     ) {
+      // if (!inputValue) inputValue = ''
       if (isUnitDegrees) {
         return this.setState({ inputValue: inputValue.concat(`${item}((π/180)*`) }, () =>
           this.calculate(),
         )
       }
 
-      return this.setState({ inputValue: inputValue.concat('sin(') }, () => this.calculate())
+      return this.setState({ inputValue: inputValue.concat(`${item}(`) }, () => this.calculate())
     }
     if (
       item === 'asin' ||
@@ -358,7 +360,7 @@ class Basic extends Component {
         </Modal>
 
         <View style={content}>
-          <Inputs inputValue={inputValue} outputValue={outputValue} data={data}/>
+          <Inputs inputValue={inputValue} outputValue={outputValue} data={data} />
 
           <Operations handleMainOp={this.handleMainOp} handleOtherOps={this.handleOtherOps} />
 

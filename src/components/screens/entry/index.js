@@ -1,39 +1,35 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-
 import styles from './styles'
 import { mainOperations } from './constants'
 
 class Entry extends Component {
   constructor(props) {
     super(props)
-
-    this.state = {}
-
     this.handleButtonPress = this.handleButtonPress.bind(this)
   }
 
   handleButtonPress(index) {
     const { navigation } = this.props
 
-    if (index === -1) return navigation.navigate('Settings', { data: 'Settings Screen' })
+    switch (index) {
+      case 0:
+        return navigation.navigate('Basic', {
+          data: 'Operations for Basic Arithmetic Calculation',
+          type: 0,
+        })
+      case 1:
+        return navigation.navigate('Equation')
+      case 2:
+        return navigation.navigate('StandardDeviation')
+      case 3:
+        return navigation.navigate('Regression')
+      case 4:
+        return navigation.navigate('UnitConverter')
 
-    if (index === 0) {
-      return navigation.navigate('Basic', {
-        data: 'Operations for Basic Arithmetic Calculation',
-        type: 0,
-      })
-    }
-
-    if (index === 2) {
-      return navigation.navigate('StandardDeviation', { data: 'Operations for Standard Deviation' })
-    }
-
-    if (index === 3) return navigation.navigate('Settings', { data: 'Operations for Regression' })
-
-    if (index === 1) {
-      return navigation.navigate('Equation', { data: 'Eq' })
+      default:
+        navigation.navigate('Settings')
     }
   }
 

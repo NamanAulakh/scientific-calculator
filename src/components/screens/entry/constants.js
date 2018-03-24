@@ -3,4 +3,5 @@ export const mainOperations = [
   'Solution of Equations',
   'Standard Deviation',
   'Regression',
+  'Unit Converter',
 ]
