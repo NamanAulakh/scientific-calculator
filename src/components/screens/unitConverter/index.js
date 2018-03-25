@@ -15,8 +15,8 @@ class UnitConverter extends Component {
   calc() {
     try {
       const { from, to } = this.state
-      const answer = math.to(math.unit(from), to).value
-      Alert.alert(`${from} equals ${answer} ${to}`)
+      const answer = math.format(math.to(math.unit(from), to))
+      Alert.alert(`${from} equals ${answer}`)
     } catch (error) {
       Alert.alert('Invalid input')
     }

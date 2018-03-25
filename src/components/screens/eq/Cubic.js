@@ -9,7 +9,7 @@ class Cubic extends Component {
   constructor(props, context) {
     super(props, context)
 
-    this.state = { root1: '0', root2: '0', root3: '0', a: '1', b: '0', c: '0', d: '0' }
+    this.state = { root1: '0', root2: NaN, root3: NaN, a: '1', b: '0', c: '0', d: '0' }
 
     this.solve = this.solve.bind(this)
     this.solveCubic = this.solveCubic.bind(this)
@@ -94,9 +94,9 @@ class Cubic extends Component {
     // console.log(res, '&*&*&*&*&*&*&*&*&**&')
 
     this.setState({
-      root1: res[0] ? res[0] : '-',
-      root2: res[1] ? res[1] : '-',
-      root3: res[2] ? res[2] : '-',
+      root1: res[0] !== null && res[0] !== undefined ? res[0] : 'NaN',
+      root2: res[1] !== null && res[1] !== undefined ? res[1] : 'NaN',
+      root3: res[2] !== null && res[2] !== undefined ? res[2] : 'NaN',
     })
 
     // if (res.length < 3) return this.setState({ root1: 0, root2: 0, root3: 0 })
